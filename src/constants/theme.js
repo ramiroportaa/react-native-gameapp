@@ -9,4 +9,11 @@ export const theme = {
     background: '#E1E2EF',
     text: '#02020A',
   },
+  fonts: {
+    fontFamily: 'Roboto',
+    fontSize: {
+      title: 20,
+      text: 16,
+    },
+  },
 };
