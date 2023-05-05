@@ -7,7 +7,7 @@ const StartGame = () => {
   return (
     <View style={styles.container}>
       <Header title="WELCOME!" />
-      <Text>START GAME</Text>
+      <Text style={styles.title}>START GAME</Text>
     </View>
   );
 };
