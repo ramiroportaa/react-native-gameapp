@@ -52,10 +52,4 @@ export const styles = StyleSheet.create({
     fontSize: 24,
     color: theme.colors.white,
   },
-  confirmedOutputValue: {
-    fontSize: theme.fonts.fontSize.bigNumber,
-    color: theme.colors.white,
-    fontWeight: 'bold',
-    marginVertical: 10,
-  },
 });

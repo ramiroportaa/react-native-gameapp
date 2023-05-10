@@ -10,7 +10,7 @@ import {
 } from 'react-native';
 
 import { styles } from './styles';
-import { Card, Header } from '../../components';
+import { Card, Header, NumberContainer } from '../../components';
 import { theme } from '../../constants/theme';
 
 const StartGame = () => {
@@ -43,7 +43,7 @@ const StartGame = () => {
     confirmedOutput = (
       <Card style={styles.confirmedOutput}>
         <Text style={styles.confirmedOutputText}>Seleccionaste el num:</Text>
-        <Text style={styles.confirmedOutputValue}>{numberSelected}</Text>
+        <NumberContainer number={numberSelected} />
         <Button title="EMPEZAR" color={theme.colors.green} />
       </Card>
     );
