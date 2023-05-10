@@ -14,6 +14,7 @@ export const theme = {
     fontSize: {
       title: 20,
       text: 16,
+      bigNumber: 32,
     },
   },
 };

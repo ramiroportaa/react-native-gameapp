@@ -32,7 +32,7 @@ export const styles = StyleSheet.create({
     borderBottomWidth: 1,
     minWidth: 80,
     textAlign: 'center',
-    fontSize: 24,
+    fontSize: theme.fonts.fontSize.bigNumber,
   },
   buttonContainer: {
     flexDirection: 'row',
@@ -40,5 +40,22 @@ export const styles = StyleSheet.create({
     paddingHorizontal: 20,
     justifyContent: 'space-evenly',
     marginVertical: 20,
+  },
+  confirmedOutput: {
+    marginVertical: 20,
+    padding: 20,
+    backgroundColor: theme.colors.secondary,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  confirmedOutputText: {
+    fontSize: 24,
+    color: theme.colors.white,
+  },
+  confirmedOutputValue: {
+    fontSize: theme.fonts.fontSize.bigNumber,
+    color: theme.colors.white,
+    fontWeight: 'bold',
+    marginVertical: 10,
   },
 });
