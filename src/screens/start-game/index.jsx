@@ -13,7 +13,7 @@ import { styles } from './styles';
 import { Card, Header, NumberContainer } from '../../components';
 import { theme } from '../../constants/theme';
 
-const StartGame = () => {
+const StartGame = ({ onStartGame }) => {
   const [numberSelected, setNumberSelected] = useState('');
   const [confirmed, setConfirmed] = useState(false);
 
@@ -38,13 +38,17 @@ const StartGame = () => {
     setConfirmed(true);
   };
 
+  const handlerOnStartGame = () => {
+    onStartGame(numberSelected);
+  };
+
   let confirmedOutput;
   if (confirmed) {
     confirmedOutput = (
       <Card style={styles.confirmedOutput}>
         <Text style={styles.confirmedOutputText}>Seleccionaste el num:</Text>
         <NumberContainer number={numberSelected} />
-        <Button title="EMPEZAR" color={theme.colors.green} />
+        <Button title="EMPEZAR" color={theme.colors.green} onPress={handlerOnStartGame} />
       </Card>
     );
   }
