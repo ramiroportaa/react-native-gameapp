@@ -11,8 +11,8 @@ export const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   title: {
+    fontFamily: theme.fonts.fontFamily.bold,
     fontSize: theme.fonts.fontSize.title,
     color: theme.colors.white,
-    fontWeight: 'bold',
   },
 });

@@ -16,6 +16,7 @@ export const styles = StyleSheet.create({
     backgroundColor: theme.colors.primary,
   },
   label: {
+    fontFamily: theme.fonts.fontFamily.regular,
     fontSize: theme.fonts.fontSize.text,
     color: theme.colors.text,
     paddingBottom: 20,

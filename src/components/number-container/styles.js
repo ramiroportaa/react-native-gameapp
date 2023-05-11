@@ -9,8 +9,8 @@ export const styles = StyleSheet.create({
     marginVertical: 10,
   },
   number: {
+    fontFamily: theme.fonts.fontFamily.bold,
     fontSize: theme.fonts.fontSize.bigNumber,
     color: theme.colors.white,
-    fontWeight: 'bold',
   },
 });

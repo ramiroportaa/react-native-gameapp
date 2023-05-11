@@ -9,6 +9,7 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
   },
   title: {
+    fontFamily: theme.fonts.fontFamily.bold,
     fontSize: theme.fonts.fontSize.title,
     color: theme.colors.text,
     textAlign: 'center',
@@ -21,6 +22,7 @@ export const styles = StyleSheet.create({
     backgroundColor: theme.colors.primary,
   },
   label: {
+    fontFamily: theme.fonts.fontFamily.regular,
     fontSize: theme.fonts.fontSize.text,
     color: theme.colors.text,
     paddingVertical: 20,
@@ -32,6 +34,7 @@ export const styles = StyleSheet.create({
     borderBottomWidth: 1,
     minWidth: 80,
     textAlign: 'center',
+    fontFamily: theme.fonts.fontFamily.bold,
     fontSize: theme.fonts.fontSize.bigNumber,
   },
   buttonContainer: {
@@ -49,6 +52,7 @@ export const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   confirmedOutputText: {
+    fontFamily: theme.fonts.fontFamily.regular,
     fontSize: 24,
     color: theme.colors.white,
   },
