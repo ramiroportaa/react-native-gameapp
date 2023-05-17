@@ -3,11 +3,12 @@ import { useState } from 'react';
 import { ActivityIndicator, View } from 'react-native';
 
 import { theme } from './constants/theme';
-import { Game, StartGame } from './screens';
+import { Game, StartGame, GameOver } from './screens';
 import { styles } from './styles';
 
 export default function App() {
   const [userNumber, setUserNumber] = useState(null);
+  const [guessRounds, setGuessRounds] = useState(0);
   const [loaded] = useFonts({
     'Epilogue-Regular': require('../assets/fonts/Epilogue-Regular.ttf'),
     'Epilogue-Bold': require('../assets/fonts/Epilogue-Bold.ttf'),
@@ -25,8 +26,21 @@ export default function App() {
     setUserNumber(number);
   };
 
-  const Content = () =>
-    userNumber ? <Game userNumber={userNumber} /> : <StartGame onStartGame={onStartGame} />;
+  const onGameOver = (rounds) => {
+    setGuessRounds(rounds);
+  };
+
+  const onRestart = () => {
+    setGuessRounds(0);
+    setUserNumber(null);
+  };
+
+  const Content = () => {
+    if (guessRounds)
+      return <GameOver rounds={guessRounds} choice={userNumber} onRestart={onRestart} />;
+    if (userNumber) return <Game userNumber={userNumber} onGameOver={onGameOver} />;
+    return <StartGame onStartGame={onStartGame} />;
+  };
 
   return (
     <View style={styles.container}>
