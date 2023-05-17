@@ -1,6 +1,8 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet, Dimensions } from 'react-native';
 
 import { theme } from '../../constants/theme';
+
+const { height, width } = Dimensions.get('window');
 
 export const styles = StyleSheet.create({
   container: {
@@ -20,6 +22,7 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
     marginHorizontal: 24,
     backgroundColor: theme.colors.primary,
+    height: height * 0.25,
   },
   label: {
     fontFamily: theme.fonts.fontFamily.regular,
@@ -29,7 +32,7 @@ export const styles = StyleSheet.create({
     textAlign: 'center',
   },
   input: {
-    width: '40%',
+    width: width * 0.3,
     borderBottomColor: theme.colors.secondary,
     borderBottomWidth: 1,
     minWidth: 80,
@@ -45,6 +48,7 @@ export const styles = StyleSheet.create({
     marginVertical: 20,
   },
   confirmedOutput: {
+    height: height * 0.25,
     marginVertical: 20,
     padding: 20,
     backgroundColor: theme.colors.secondary,

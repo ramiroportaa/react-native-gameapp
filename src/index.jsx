@@ -1,6 +1,6 @@
 import { useFonts } from 'expo-font';
 import { useState } from 'react';
-import { ActivityIndicator, View } from 'react-native';
+import { ActivityIndicator, View, SafeAreaView } from 'react-native';
 
 import { theme } from './constants/theme';
 import { Game, StartGame, GameOver } from './screens';
@@ -43,8 +43,8 @@ export default function App() {
   };
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <Content />
-    </View>
+    </SafeAreaView>
   );
 }

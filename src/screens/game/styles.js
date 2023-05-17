@@ -1,6 +1,8 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet, Dimensions } from 'react-native';
 
 import { theme } from '../../constants/theme';
+
+const { width } = Dimensions.get('window');
 
 export const styles = StyleSheet.create({
   container: {
@@ -8,7 +10,7 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
   },
   cardContainer: {
-    width: '100%',
+    width: width * 0.8,
     padding: 20,
     justifyContent: 'center',
     alignItems: 'center',

@@ -1,6 +1,8 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet, Dimensions } from 'react-native';
 
 import { theme } from '../../constants/theme';
+
+const { height, width } = Dimensions.get('window');
 
 export const styles = StyleSheet.create({
   container: {
@@ -11,12 +13,12 @@ export const styles = StyleSheet.create({
   resultContainer: {
     marginBottom: 30,
     padding: 20,
-    width: '80%',
+    width: width * 0.75,
     alignItems: 'center',
   },
   image: {
-    width: '80%',
-    height: 200,
+    width: width * 0.75,
+    height: height * 0.2,
   },
   resultText: {
     color: theme.colors.text,

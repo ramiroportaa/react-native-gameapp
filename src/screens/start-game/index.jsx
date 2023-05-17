@@ -7,6 +7,8 @@ import {
   TouchableWithoutFeedback,
   Keyboard,
   Alert,
+  KeyboardAvoidingView,
+  ScrollView,
 } from 'react-native';
 
 import { styles } from './styles';
@@ -54,45 +56,49 @@ const StartGame = ({ onStartGame }) => {
   }
 
   return (
-    <TouchableWithoutFeedback
-      onPress={() => {
-        Keyboard.dismiss();
-      }}>
-      <View style={styles.container}>
-        <Header title="WELCOME!" />
-        <Text style={styles.title}>START GAME</Text>
-        <Card style={styles.inputContainer}>
-          <Text style={styles.label}>Write a number</Text>
-          <TextInput
-            placeholder="0"
-            style={styles.input}
-            keyboardType="number-pad"
-            maxLength={2}
-            autoCapitalize="none"
-            autoCorrect={false}
-            blurOnSubmit
-            onChangeText={onHandlerChangeText}
-            value={numberSelected}
-            editable={!confirmed}
-          />
-          <View style={styles.buttonContainer}>
-            <Button
-              title="reset"
-              onPress={handlerResetInput}
-              color={theme.colors.secondary}
-              disabled={numberSelected === ''}
-            />
-            <Button
-              title="Confirm"
-              onPress={handlerConfirmInput}
-              color={theme.colors.secondary}
-              disabled={numberSelected === ''}
-            />
+    <KeyboardAvoidingView behavior="padding" keyboardVerticalOffset={30}>
+      <ScrollView>
+        <TouchableWithoutFeedback
+          onPress={() => {
+            Keyboard.dismiss();
+          }}>
+          <View style={styles.container}>
+            <Header title="WELCOME!" />
+            <Text style={styles.title}>START GAME</Text>
+            <Card style={styles.inputContainer}>
+              <Text style={styles.label}>Write a number</Text>
+              <TextInput
+                placeholder="0"
+                style={styles.input}
+                keyboardType="number-pad"
+                maxLength={2}
+                autoCapitalize="none"
+                autoCorrect={false}
+                blurOnSubmit
+                onChangeText={onHandlerChangeText}
+                value={numberSelected}
+                editable={!confirmed}
+              />
+              <View style={styles.buttonContainer}>
+                <Button
+                  title="reset"
+                  onPress={handlerResetInput}
+                  color={theme.colors.secondary}
+                  disabled={numberSelected === ''}
+                />
+                <Button
+                  title="Confirm"
+                  onPress={handlerConfirmInput}
+                  color={theme.colors.secondary}
+                  disabled={numberSelected === ''}
+                />
+              </View>
+            </Card>
+            {confirmedOutput}
           </View>
-        </Card>
-        {confirmedOutput}
-      </View>
-    </TouchableWithoutFeedback>
+        </TouchableWithoutFeedback>
+      </ScrollView>
+    </KeyboardAvoidingView>
   );
 };
 
