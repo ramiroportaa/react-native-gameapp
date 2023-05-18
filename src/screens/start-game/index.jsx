@@ -16,7 +16,7 @@ import { styles } from './styles';
 import { Card, Header, NumberContainer } from '../../components';
 import { theme } from '../../constants/theme';
 
-const StartGame = ({ onStartGame }) => {
+const StartGame = ({ navigation }) => {
   const [numberSelected, setNumberSelected] = useState('');
   const [confirmed, setConfirmed] = useState(false);
   const { isPortrait } = useOrientation();
@@ -43,7 +43,7 @@ const StartGame = ({ onStartGame }) => {
   };
 
   const handlerOnStartGame = () => {
-    onStartGame(numberSelected);
+    navigation.navigate('Game', { userNumber: numberSelected });
   };
 
   let confirmedOutput;

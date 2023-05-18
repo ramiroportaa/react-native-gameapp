@@ -5,7 +5,8 @@ import { styles } from './styles';
 import { Card, Header } from '../../components';
 import { theme } from '../../constants/theme';
 
-const GameOver = ({ rounds, choice, onRestart }) => {
+const GameOver = ({ route, navigation }) => {
+  const { rounds, choice } = route.params;
   const { isPortrait } = useOrientation();
   return (
     <View style={styles.container}>
@@ -21,7 +22,11 @@ const GameOver = ({ rounds, choice, onRestart }) => {
           <Text style={styles.resultText}>El numero era: {choice}</Text>
         </Card>
       </View>
-      <Button title="JUGAR DE NUEVO" onPress={onRestart} color={theme.colors.black} />
+      <Button
+        title="JUGAR DE NUEVO"
+        onPress={() => navigation.navigate('Start')}
+        color={theme.colors.black}
+      />
     </View>
   );
 };

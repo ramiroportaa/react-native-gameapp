@@ -18,7 +18,8 @@ const generateRandomNumber = (min, max, exclude) => {
   return randomNumber;
 };
 
-const Game = ({ userNumber, onGameOver }) => {
+const Game = ({ route, navigation }) => {
+  const { userNumber } = route.params;
   const [currentGuess, setCurrentGuess] = useState(
     generateRandomNumber(MIN_NUMBER, MAX_NUMBER, userNumber)
   );
@@ -30,8 +31,8 @@ const Game = ({ userNumber, onGameOver }) => {
   const { isPortrait } = useOrientation();
 
   useEffect(() => {
-    if (currentGuess == userNumber) onGameOver(rounds);
-  }, [currentGuess, userNumber, onGameOver]);
+    if (currentGuess == userNumber) navigation.navigate('GameOver', { rounds, choice: userNumber });
+  }, [currentGuess, userNumber]);
 
   const handlerMenorButton = () => {
     if (currentGuess > userNumber) {
