@@ -10,10 +10,21 @@ export const styles = StyleSheet.create({
     backgroundColor: theme.colors.background,
     alignItems: 'center',
   },
+  contentLandscape: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginBottom: 20,
+  },
   resultContainer: {
     marginBottom: 30,
     padding: 20,
     width: width * 0.75,
+    alignItems: 'center',
+  },
+  resultContainerLandscape: {
+    padding: 20,
+    width: height * 0.3,
     alignItems: 'center',
   },
   image: {

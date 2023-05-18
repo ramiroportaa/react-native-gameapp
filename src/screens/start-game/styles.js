@@ -2,7 +2,7 @@ import { StyleSheet, Dimensions } from 'react-native';
 
 import { theme } from '../../constants/theme';
 
-const { height, width } = Dimensions.get('window');
+const { height, width } = Dimensions.get('screen');
 
 export const styles = StyleSheet.create({
   container: {
@@ -23,6 +23,14 @@ export const styles = StyleSheet.create({
     marginHorizontal: 24,
     backgroundColor: theme.colors.primary,
     height: height * 0.25,
+  },
+  inputContainerLandscape: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginHorizontal: 24,
+    backgroundColor: theme.colors.primary,
+    height: width * 0.5,
+    width: height * 0.75,
   },
   label: {
     fontFamily: theme.fonts.fontFamily.regular,
@@ -49,6 +57,15 @@ export const styles = StyleSheet.create({
   },
   confirmedOutput: {
     height: height * 0.25,
+    marginVertical: 20,
+    padding: 20,
+    backgroundColor: theme.colors.secondary,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  confirmedOutputLandscape: {
+    height: width * 0.5,
+    width: height * 0.75,
     marginVertical: 20,
     padding: 20,
     backgroundColor: theme.colors.secondary,

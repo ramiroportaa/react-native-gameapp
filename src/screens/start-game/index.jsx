@@ -11,6 +11,7 @@ import {
   ScrollView,
 } from 'react-native';
 
+import useOrientation from './../../hooks/useOrientation';
 import { styles } from './styles';
 import { Card, Header, NumberContainer } from '../../components';
 import { theme } from '../../constants/theme';
@@ -18,6 +19,7 @@ import { theme } from '../../constants/theme';
 const StartGame = ({ onStartGame }) => {
   const [numberSelected, setNumberSelected] = useState('');
   const [confirmed, setConfirmed] = useState(false);
+  const { isPortrait } = useOrientation();
 
   const onHandlerChangeText = (text) => {
     if (/[^0-9]/g.test(text)) return;
@@ -47,7 +49,7 @@ const StartGame = ({ onStartGame }) => {
   let confirmedOutput;
   if (confirmed) {
     confirmedOutput = (
-      <Card style={styles.confirmedOutput}>
+      <Card style={isPortrait ? styles.confirmedOutput : styles.confirmedOutputLandscape}>
         <Text style={styles.confirmedOutputText}>Seleccionaste el num:</Text>
         <NumberContainer number={numberSelected} />
         <Button title="EMPEZAR" color={theme.colors.green} onPress={handlerOnStartGame} />
@@ -57,15 +59,15 @@ const StartGame = ({ onStartGame }) => {
 
   return (
     <KeyboardAvoidingView behavior="padding" keyboardVerticalOffset={30}>
-      <ScrollView>
-        <TouchableWithoutFeedback
-          onPress={() => {
-            Keyboard.dismiss();
-          }}>
+      <TouchableWithoutFeedback
+        onPress={() => {
+          Keyboard.dismiss();
+        }}>
+        <ScrollView>
           <View style={styles.container}>
             <Header title="WELCOME!" />
             <Text style={styles.title}>START GAME</Text>
-            <Card style={styles.inputContainer}>
+            <Card style={isPortrait ? styles.inputContainer : styles.inputContainerLandscape}>
               <Text style={styles.label}>Write a number</Text>
               <TextInput
                 placeholder="0"
@@ -96,8 +98,8 @@ const StartGame = ({ onStartGame }) => {
             </Card>
             {confirmedOutput}
           </View>
-        </TouchableWithoutFeedback>
-      </ScrollView>
+        </ScrollView>
+      </TouchableWithoutFeedback>
     </KeyboardAvoidingView>
   );
 };

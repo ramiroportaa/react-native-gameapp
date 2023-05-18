@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { Text, View, Button, Alert } from 'react-native';
 
+import useOrientation from './../../hooks/useOrientation';
 import { styles } from './styles';
 import { Header, Card, NumberContainer } from '../../components';
 import { theme } from '../../constants/theme';
@@ -25,6 +26,8 @@ const Game = ({ userNumber, onGameOver }) => {
   const [rounds, setRounds] = useState(0);
   const currentLow = useRef(MIN_NUMBER);
   const currentHigh = useRef(MAX_NUMBER);
+
+  const { isPortrait } = useOrientation();
 
   useEffect(() => {
     if (currentGuess == userNumber) onGameOver(rounds);
@@ -67,7 +70,7 @@ const Game = ({ userNumber, onGameOver }) => {
   return (
     <View style={styles.container}>
       <Header title="GAME!" />
-      <Card style={styles.cardContainer}>
+      <Card style={isPortrait ? styles.cardContainer : styles.cardContainerLandscape}>
         <Text style={styles.label}>El oponente cree que es el: </Text>
         <NumberContainer number={currentGuess} />
         <View style={styles.buttonContainer}>

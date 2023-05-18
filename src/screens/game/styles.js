@@ -2,7 +2,7 @@ import { StyleSheet, Dimensions } from 'react-native';
 
 import { theme } from '../../constants/theme';
 
-const { width } = Dimensions.get('window');
+const { width, height } = Dimensions.get('window');
 
 export const styles = StyleSheet.create({
   container: {
@@ -15,6 +15,15 @@ export const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     margin: 24,
+    backgroundColor: theme.colors.primary,
+  },
+  cardContainerLandscape: {
+    width: height * 0.4,
+    height: width * 0.55,
+    padding: 20,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginTop: 24,
     backgroundColor: theme.colors.primary,
   },
   label: {
